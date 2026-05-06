@@ -51,7 +51,7 @@ for ticker in tickers:
     hasil.append({
         "ticker": ticker,
         "price": harga,
-        "score": score
+        "score": score,
         "prob": prob
     })
 score = 0
