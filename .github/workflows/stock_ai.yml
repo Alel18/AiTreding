@@ -21,9 +21,11 @@ jobs:
           python-version: '3.11'
 
       - name: Install Library
-        run: 
-        pip install requests
-        pip install yfinance
-Commit changes.
+        run: |
+          pip install requests
+          pip install yfinance
+          pip install pandas
+          pip install ta
+
       - name: Run Python File
         run: python bot_trading.py
