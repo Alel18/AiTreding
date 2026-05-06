@@ -77,7 +77,9 @@ df = df.sort_values(
     by="score",
     ascending=False
 )
-score +=1
+if return_1m > 0:
+    score += 1
+
 prob = round(score / 4 * 100, 1)
 
 hasil.append({
@@ -86,7 +88,6 @@ hasil.append({
     "score": score,
     "prob": prob
 })
-
 pesan = "TOP SAHAM HARI INI\n\n"
 
 for i, row in df.iterrows():
