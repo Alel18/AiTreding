@@ -20,5 +20,8 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Install Library
+        run: pip install requests
+
       - name: Run Python File
         run: python bot_trading.py
