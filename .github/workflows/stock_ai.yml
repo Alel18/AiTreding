@@ -1,11 +1,8 @@
 name: AI Trading Bot
+
 on:
   schedule:
-    - cron: '0 1 ,8 * * 1-5'
-
-  workflow_dispatch:
-    branches:
-      - main
+    - cron: '0 1 * * *'
 
   workflow_dispatch:
 
