@@ -4,7 +4,7 @@ import requests
 from ta.trend import SMAIndicator
 from ta.trend import SMAIndicator, MACD
 from ta.momentum import RSIIndicator
-rsi = RSIIndicator(close).rsi().iloc[-1]
+
 
 if rsi < 70:
     score += 1
@@ -46,6 +46,7 @@ for ticker in tickers:
     macd_signal = macd.macd_signal()
     sma20 = SMAIndicator(close, window=20).sma_indicator().iloc[-1]
     sma50 = SMAIndicator(close, window=50).sma_indicator().iloc[-1]
+    rsi = RSIIndicator(close).rsi().iloc[-1]
 
 if sma20 > sma50:
     score += 1
