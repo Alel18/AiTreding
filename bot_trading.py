@@ -5,7 +5,7 @@ import requests
 from ta.trend import SMAIndicator, MACD
 from ta.momentum import RSIIndicator
 
-TOKEN = "TOKEN_BOT_KAMU"
+TOKEN = "8775385140:AAG6Mt-_4r7Mq7s1RYjWRkMqYpn_EUiB7E4"
 CHAT_ID = "6809245174"
 
 tickers = [
@@ -112,11 +112,10 @@ for i, row in df.head(5).iterrows():
         f"Score: {row['score']}\n"
         f"Probabilitas: {row['prob']}%\n\n"
     )
-
 url = (
-    TOKEN = "8775385140:AAG6Mt-_4r7Mq7s1RYjWRkMqYpn_EUiB7E4"
-CHAT_ID = "6809245174"
+    f"https://api.telegram.org/bot{TOKEN}/sendMessage"
 )
+
 
 params = {
     "chat_id": CHAT_ID,
