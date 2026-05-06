@@ -47,13 +47,14 @@ for ticker in tickers:
 
     if return_1m > 0:
         score += 1
+prob = round(score / 4 * 100, 1)
 
-    hasil.append({
-        "ticker": ticker,
-        "price": harga,
-        "score": score,
-        "prob": prob
-    })
+hasil.append({
+    "ticker": ticker,
+    "price": harga,
+    "score": score,
+    "prob": prob
+})
 score = 0
 
 if ma5.iloc[-1] > ma20.iloc[-1]:
