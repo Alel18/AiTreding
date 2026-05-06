@@ -52,6 +52,9 @@ if sma20 > sma50:
     score = 0
     
     rsi = RSIIndicator(close).rsi().iloc[-1]
+    # RSI
+if rsi < 70:
+    score += 1
 
     harga = float(close.iloc[-1])
 
@@ -115,10 +118,6 @@ if sma5 > sma20:
 
 # Volume
 if volume_today > volume_avg:
-    score += 1
-
-# RSI
-if rsi < 70:
     score += 1
 
 # Momentum
