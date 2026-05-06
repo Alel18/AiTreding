@@ -46,14 +46,15 @@ for ticker in tickers:
     macd_signal = macd.macd_signal()
     sma20 = SMAIndicator(close, window=20).sma_indicator().iloc[-1]
     sma50 = SMAIndicator(close, window=50).sma_indicator().iloc[-1]
-    rsi = RSIIndicator(close).rsi().iloc[-1]
-
+    
 if sma20 > sma50:
     score += 1
+    score = 0
+    
+    rsi = RSIIndicator(close).rsi().iloc[-1]
 
     harga = float(close.iloc[-1])
 
-    score = 0
 
     if ma5.iloc[-1] > ma20.iloc[-1]:
         score += 1
