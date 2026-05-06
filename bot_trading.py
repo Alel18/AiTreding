@@ -49,11 +49,8 @@ if sma20 > sma50:
     score = 0
     
     rsi = RSIIndicator(close).rsi().iloc[-1]
+score = 0
 if rsi < 70:
-
-
-
-    
     score += 1
    
     harga = float(close.iloc[-1])
