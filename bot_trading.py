@@ -126,3 +126,8 @@ r = requests.get(url, params=params)
 
 print(r.text)
 TOKEN = "8775385140:AAG6Mt-_4r7Mq7s1RYjWRkMqYpn_EUiB7E4"
+r = requests.get(url, params=params)
+
+print(pesan)
+print(r.status_code)
+print(r.text)
