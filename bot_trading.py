@@ -52,6 +52,7 @@ for ticker in tickers:
         "ticker": ticker,
         "price": harga,
         "score": score
+        "prob": prob
     })
 score = 0
 
@@ -76,6 +77,7 @@ df = df.sort_values(
     by="score",
     ascending=False
 )
+score +=1
 prob = round(score / 4 * 100, 1)
 
 hasil.append({
