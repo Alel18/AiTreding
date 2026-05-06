@@ -23,7 +23,7 @@ for ticker in tickers:
     if len(data) < 25:
         continue
 
-    close = data["Close"]
+    close = data["Close"].squeeze()
 
     ma5 = SMAIndicator(close, window=5).sma_indicator()
     ma20 = SMAIndicator(close, window=20).sma_indicator()
