@@ -1,7 +1,7 @@
 import requests
 
 TOKEN = "8775385140:AAG6Mt-_4r7Mq7s1RYjWRkMqYpn_EUiB7E4"
-CHAT_ID = "8775385140"
+CHAT_ID = "6809245174"
 
 def kirim_telegram(pesan):
 
