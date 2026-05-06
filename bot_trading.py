@@ -1,3 +1,4 @@
+print("VERSI BARU")
 import requests
 
 TOKEN = "8775385140:AAG6Mt-_4r7Mq7s1RYjWRkMqYpn_EUiB7E4"
