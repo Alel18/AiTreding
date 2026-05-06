@@ -6,9 +6,6 @@ from ta.trend import SMAIndicator, MACD
 from ta.momentum import RSIIndicator
 
 
-if rsi < 70:
-    score += 1
-
 TOKEN = "8775385140:AAG6Mt-_4r7Mq7s1RYjWRkMqYpn_EUiB7E4"
 CHAT_ID = "6809245174"
 
@@ -52,10 +49,9 @@ if sma20 > sma50:
     score = 0
     
     rsi = RSIIndicator(close).rsi().iloc[-1]
-    # RSI
-if rsi < 70:
+    if rsi < 70:
     score += 1
-
+   
     harga = float(close.iloc[-1])
 
 
@@ -123,6 +119,10 @@ if volume_today > volume_avg:
 # Momentum
 if return_1m > 0:
     score += 1
+# RSI
+if rsi < 70:
+    score += 1
+
 
 # Probabilitas
 prob = round(score / 4 * 100, 1)
