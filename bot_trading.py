@@ -114,15 +114,14 @@ for i, row in df.head(5).iterrows():
     )
 
 url = (
-    f"https://api.telegram.org/bot{TOKEN}/sendMessage"
+    TOKEN = "8775385140:AAG6Mt-_4r7Mq7s1RYjWRkMqYpn_EUiB7E4"
+CHAT_ID = "6809245174"
 )
 
 params = {
     "chat_id": CHAT_ID,
     "text": pesan
 }
-TOKEN = "8775385140:AAG6Mt-_4r7Mq7s1RYjWRkMqYpn_EUiB7E4"
-CHAT_ID = "6809245174"
 
 r = requests.get(url, params=params)
 
