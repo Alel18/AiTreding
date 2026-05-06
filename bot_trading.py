@@ -15,6 +15,17 @@ tickers = [
     "CPIN.JK","UNTR.JK","BRIS.JK","GOTO.JK",
     "EXCL.JK","SMGR.JK","KLBF.JK","AKRA.JK"
 ]
+tickers = [
+    "BBRI.JK","BBCA.JK","BMRI.JK","BBNI.JK",
+    "TLKM.JK","ASII.JK","ICBP.JK","INDF.JK",
+    "ANTM.JK","ADRO.JK","PTBA.JK","MDKA.JK",
+    "CPIN.JK","UNTR.JK","BRIS.JK","GOTO.JK",
+    "EXCL.JK","SMGR.JK","KLBF.JK","AKRA.JK",
+    "PGAS.JK","MEDC.JK","ITMG.JK","UNVR.JK",
+    "ERAA.JK","ACES.JK","MAPI.JK","BBTN.JK",
+    "AMRT.JK","SIDO.JK","JPFA.JK","TINS.JK",
+    "HRUM.JK","INDY.JK","ESSA.JK","LSIP.JK"
+]
 
 hasil = []
 
@@ -37,6 +48,7 @@ for ticker in tickers:
         harga = float(close.iloc[-1])
 
         score = 0
+        alasan = []
 
         # SMA
         sma5 = SMAIndicator(
@@ -51,12 +63,14 @@ for ticker in tickers:
 
         if sma5 > sma20:
             score += 1
+            alasan.append("Trend Naik")
 
         # RSI
         rsi = RSIIndicator(close).rsi().iloc[-1]
 
         if rsi < 70:
             score += 1
+            alasan.append("RSI Sehat")
 
         # MACD
         macd = MACD(close)
@@ -66,6 +80,7 @@ for ticker in tickers:
 
         if macd_line > macd_signal:
             score += 1
+            alasan.append("MACD Bullish")
 
         # Momentum
         return_1m = (
@@ -74,6 +89,7 @@ for ticker in tickers:
 
         if return_1m > 0:
             score += 1
+            alasan.append("Momentum Positif")
 
         # Volume
         volume_today = volume.iloc[-1]
@@ -81,6 +97,7 @@ for ticker in tickers:
 
         if volume_today > volume_avg:
             score += 1
+            alasan.append("Volume Tinggi")
 
         # Probabilitas
         prob = round(score / 5 * 100, 1)
@@ -89,7 +106,8 @@ for ticker in tickers:
             "ticker": ticker,
             "price": harga,
             "score": score,
-            "prob": prob
+            "prob": prob,
+            "alasan": ", ".join(alasan)
         })
 
     except:
@@ -111,6 +129,7 @@ for i, row in df.head(5).iterrows():
         f"Harga: {row['price']:.0f}\n"
         f"Score: {row['score']}\n"
         f"Probabilitas: {row['prob']}%\n\n"
+        f"AI: {row['alasan']}\n\n"
     )
 url = (
     f"https://api.telegram.org/bot{TOKEN}/sendMessage"
