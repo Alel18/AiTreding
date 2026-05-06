@@ -16,4 +16,4 @@ def kirim_telegram(pesan):
 
     print(r.text)
 
-kirim_telegram("AI Trading GitHub Berhasil Jalan")
+kirim_telegram("TEST DARI GITHUB")
